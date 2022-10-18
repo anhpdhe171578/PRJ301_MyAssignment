@@ -40,21 +40,22 @@ public class TimeSlotDBContext extends DBContext<TimeSlot> {
 
     @Override
     public ArrayList<TimeSlot> list() {
+        ArrayList<TimeSlot> slots = new ArrayList<>();
         try {
-            ArrayList<TimeSlot> slots = new ArrayList<>();
             String sql = "SELECT tid,[description] FROM TimeSlot";
             PreparedStatement stm = connection.prepareStatement(sql);
             ResultSet rs = stm.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 TimeSlot slot = new TimeSlot();
                 slot.setId(rs.getInt("tid"));
                 slot.setDescription(rs.getString("description"));
                 slots.add(slot);
             }
-                    } catch (SQLException ex) {
+
+        } catch (SQLException ex) {
             Logger.getLogger(TimeSlotDBContext.class.getName()).log(Level.SEVERE, null, ex);
         }
         return slots;
     }
-    
+
 }
