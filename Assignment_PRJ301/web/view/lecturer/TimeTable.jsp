@@ -4,6 +4,8 @@
     Author     : ACER PRENDATOR
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:useBean id="helper" class="until.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,24 +14,34 @@
         <title>JSP Page</title>
     </head>
     <body>
-        Lecturer: <input type="text" readonly="readonly" value="" />
+        Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/>
         <form action="timetable" method="GET">
-            <input type="hidden" name="lid" value="" />
-            Date <br>
-            From: <input type="date" name="from" value="" />
-            To: <input type="date" name="to" value="" />
+            <input type="hidden" name="lid" value="${param.lid}"/>
+            From: <input type="date" name="from" value="${requestScope.from}"/>
+            To: <input type="date" name="to" value="${requestScope.to}"/>
+            <input type="submit" value="View"/> 
         </form>
         <table border="1px">
             <tr>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
+                <td> </td>
+                <c:forEach items="${requestScope.dates}" var="d">
+                    <td>${d}<br/>${helper.getDayNameofWeek(d)}</td>
+                    </c:forEach>
             </tr>
+            <c:forEach items="${requestScope.slots}" var="slot">
+                <tr>
+                    <td>${slot.description}</td>
+                    <c:forEach items="${requestScope.dates}" var="d">
+                        <td>
+                            <c:forEach items="${requestScope.sessions}" var="ses">
+                                <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
+                                    
+                                </c:if>                                 
+                            </c:forEach>
+                        </td>
+                    </c:forEach>
+                </tr>
+            </c:forEach>
         </table>
-            
     </body>
 </html>

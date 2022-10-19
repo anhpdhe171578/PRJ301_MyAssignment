@@ -19,7 +19,7 @@ public abstract class DBContext<T> {
     protected Connection connection;
     public DBContext(){
         try {
-            String user = "anhpdhe1161578";
+            String user = "anhpdhe161578";
             String pass = "14152002";
             String url = "jdbc:sqlserver://DRKJNFVJ\\DUCANH:1433;databaseName=PRJ301_FALL2022_Assignment";
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
