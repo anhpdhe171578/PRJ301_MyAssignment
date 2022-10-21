@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dal.SessionDBContext;
 import dal.TimeSlotDBContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
+import model.Session;
 import model.TimeSlot;
 import until.DateTimeHelper;
 
@@ -60,7 +62,10 @@ public class TimetableController extends HttpServlet {
         ArrayList<TimeSlot> slots = slotDB.list();
         request.setAttribute("slots", slots);
         
-        
+        SessionDBContext sesDB = new SessionDBContext();
+        ArrayList<Session> sessions = sesDB.filter(lid, from, to);
+        request.setAttribute("sessions", sessions);
+           
         request.getRequestDispatcher("../view/lecturer/TimeTable.jsp").forward(request, response);
         
     } 

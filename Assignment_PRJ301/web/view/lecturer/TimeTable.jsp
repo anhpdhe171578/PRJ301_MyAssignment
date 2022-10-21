@@ -5,11 +5,11 @@
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<jsp:useBean id="helper" class="until.DateTimeHelper"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <jsp:useBean id="help" class="until.DateTimeHelper"></jsp:useBean>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
@@ -33,10 +33,12 @@
                     <td>${slot.description}</td>
                     <c:forEach items="${requestScope.dates}" var="d">
                         <td>
-                            <c:forEach items="${requestScope.sessions}" var="ses">
-                                <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                    
-                                </c:if>                                 
+                            <c:forEach items="${requestScope.sessions}" var="ses">                            
+                                <c:if test="${help.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}" >
+                                    <a href="att?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                    <br/>
+                                    ${ses.room.name}
+                                </c:if>
                             </c:forEach>
                         </td>
                     </c:forEach>
