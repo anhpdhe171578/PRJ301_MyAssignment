@@ -4,9 +4,17 @@
         <servlet-name>timetablecontroler</servlet-name>
         <servlet-class>controller.TimetableController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>attendencontroller</servlet-name>
+        <servlet-class>controller.AttendenController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>timetablecontroler</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>attendencontroller</servlet-name>
+        <url-pattern>/lecturer/attenden</url-pattern>
     </servlet-mapping>
     <session-config>
         
