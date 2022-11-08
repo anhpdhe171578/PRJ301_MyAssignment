@@ -5,26 +5,30 @@
         <servlet-class>controller.TimetableController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>attendencontroller</servlet-name>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AttendenController</servlet-name>
         <servlet-class>controller.AttendenController</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LoginController</servlet-name>
-        <servlet-class>controller.LoginController</servlet-class>
+        <servlet-name>attcontroller</servlet-name>
+        <servlet-class>controller.AttendenController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>timetablecontroler</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>attendencontroller</servlet-name>
-        <url-pattern>/lecturer/takeatt</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>attcontroller</servlet-name>
+        <url-pattern>/lecturer/takeatt</url-pattern>
+    </servlet-mapping>
     <session-config>
-        
+        30
     </session-config>
 </web-app>
