@@ -16,6 +16,10 @@
         <servlet-name>attcontroller</servlet-name>
         <servlet-class>controller.AttendenController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ReportController</servlet-name>
+        <servlet-class>controller.ReportController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>timetablecontroler</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -28,7 +32,11 @@
         <servlet-name>attcontroller</servlet-name>
         <url-pattern>/lecturer/takeatt</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportController</servlet-name>
+        <url-pattern>/Report</url-pattern>
+    </servlet-mapping>
     <session-config>
-        30
+        
     </session-config>
 </web-app>

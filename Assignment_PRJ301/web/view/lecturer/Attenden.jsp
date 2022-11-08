@@ -19,7 +19,7 @@
         </div>
         <div style="background: gainsboro">
             <span style="margin-left: 5%"> <a href="#">Home</a> | View Schedule</span>
-            <span style="float: right; margin-right: 5%" > <a href="#">Logout</a> | CAMPUS: FPTU-Hòa Lạc</span>
+            <span style="float: right; margin-right: 5%" > <a href="http://localhost:9999/Assignment_PRJ301/Login">Logout</a> | CAMPUS: FPTU-Hòa Lạc</span>
         </div>
         <div style="padding: 2% 0%">
             Take attendence for group: ${requestScope.ses.group.name} <br/>

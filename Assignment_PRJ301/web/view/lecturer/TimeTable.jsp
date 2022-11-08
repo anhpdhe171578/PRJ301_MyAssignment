@@ -19,7 +19,7 @@
         </div>
         <div style="background: gainsboro">
             <span style="margin-left: 5%"> <a href="#">Home</a> | View Schedule</span>
-            <span style="float: right; margin-right: 5%" > <a href="#">Logout</a> | CAMPUS: FPTU-Hòa Lạc</span>
+            <span style="float: right; margin-right: 5%" > <a href="http://localhost:9999/Assignment_PRJ301/Login">Logout</a> | CAMPUS: FPTU-Hòa Lạc</span>
         </div>
         <div align="center">
             <div style="padding: 2%">
@@ -50,7 +50,7 @@
                                 <c:if test="${help.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}" >
                                     <a href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
                                     <br/>
-                                    ${ses.room.name}
+                                    ${ses.room.name}<br/>
                                 </c:if>
                             </c:forEach>
                         </td>
