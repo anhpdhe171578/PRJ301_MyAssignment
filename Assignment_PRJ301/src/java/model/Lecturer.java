@@ -15,6 +15,7 @@ public class Lecturer {
     private String name;
     private ArrayList<Session> sessions = new ArrayList<>();
     private ArrayList<Group> groups = new ArrayList<>();
+    private Account username;
 
     public int getId() {
         return id;
@@ -46,6 +47,14 @@ public class Lecturer {
 
     public void setGroups(ArrayList<Group> groups) {
         this.groups = groups;
+    }
+
+    public Account getUsername() {
+        return username;
+    }
+
+    public void setUsername(Account username) {
+        this.username = username;
     }
     
     

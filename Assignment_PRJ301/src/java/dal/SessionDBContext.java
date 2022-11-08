@@ -111,7 +111,7 @@ public class SessionDBContext extends DBContext<Session> {
             //remove old att
             sql = "DELETE Attandance WHERE sesid = ?";
             PreparedStatement stm_delete = connection.prepareStatement(sql);
-            stm.setInt(1, model.getId());
+            stm_delete.setInt(1, model.getId());
             stm_delete.executeUpdate();
 
             //insert new att
@@ -135,7 +135,7 @@ public class SessionDBContext extends DBContext<Session> {
                 stm_insert.setString(4, att.getDescription());
                 stm_insert.executeUpdate();
             }
-            connection.commit();
+                connection.commit();
         } catch (SQLException ex) {
             try {
                 connection.rollback();
@@ -150,6 +150,7 @@ public class SessionDBContext extends DBContext<Session> {
                 Logger.getLogger(SessionDBContext.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+
     }
 
     @Override

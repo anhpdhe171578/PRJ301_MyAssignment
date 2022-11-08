@@ -22,11 +22,12 @@
             <span style="float: right; margin-right: 5%" > <a href="#">Logout</a> | CAMPUS: FPTU-Hòa Lạc</span>
         </div>
         <div style="padding: 2% 0%">
-        Take attendence for group: ${requestScope.ses.group.name} <br/>
-        Subject: ${requestScope.ses.group.subject.name} <br/>
-        Room: ${requestScope.ses.room.name} <br/>
-        Date: ${requestScope.ses.date} Slot ${requestScope.ses.timeslot.description}<br/>
-        Attended: <span style="color: red;"> ${requestScope.ses.attandented?"Yes":"No"} </span>
+            Take attendence for group: ${requestScope.ses.group.name} <br/>
+            Subject: ${requestScope.ses.group.subject.name} <br/>
+            Room: ${requestScope.ses.room.name} <br/>
+            Date: ${requestScope.ses.date} 
+            Slot: ${requestScope.ses.timeslot.description}<br/>
+            Attended: <span style="color: red;"> ${requestScope.ses.attandented?"Yes":"No"} </span>
         </div>
         <form action="takeatt" method="POST">
             <input type="hidden" name="sesid" value="${param.id}" /> 
@@ -42,27 +43,27 @@
                 <c:forEach items="${requestScope.ses.attandances}" var="a" varStatus="loop" >
                     <tr style="text-align: center">
                         <td>${loop.index+1}</td>
-                        <td>${a.student.id}<input type="hidden" name="stdis" value="${a.student.id}" /></td>
+                        <td>${a.student.id}<input type="hidden" name="stdid" value="${a.student.id}" /></td>
                         <td>${a.student.name}</td>
                         <td><input type="radio" 
                                    <c:if test="${a.present}"> 
                                        checked="checked" 
                                    </c:if>
-                                       name="present${a.student.id}" value="present" />
+                                   name="present${a.student.id}" value="present" />
                         </td>
                         <td><input type="radio" 
-                                   <c:if test="${a.present}"> 
+                                   <c:if test="${!a.present}"> 
                                        checked="checked" 
                                    </c:if>
-                                       name="present${a.student.id}" value="absent" />
+                                   name="present${a.student.id}" value="absent" />
                         </td>
                         <td><input type="text" name="description${a.student.id}" value="${a.description}" /></td>
                     </tr>
                 </c:forEach>
             </table>
-            <div style="float: right;margin-right: 10%">
-            <input type="submit" value="save" />
-            <div/>
+                <div style="float: right;margin-right: 10%">
+                <input type="submit" value="save" />
+                <div/>
         </form>
     </body>
 </html>

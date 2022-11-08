@@ -8,13 +8,21 @@
         <servlet-name>attendencontroller</servlet-name>
         <servlet-class>controller.AttendenController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginController</servlet-name>
+        <servlet-class>controller.LoginController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>timetablecontroler</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>attendencontroller</servlet-name>
-        <url-pattern>/lecturer/attenden</url-pattern>
+        <url-pattern>/lecturer/takeatt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginController</servlet-name>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <session-config>
         
